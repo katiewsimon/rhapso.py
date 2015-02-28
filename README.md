@@ -11,9 +11,8 @@ reddit + music + python
 
 Install [PyAudio](http://people.csail.mit.edu/hubert/pyaudio/)
 
-Install pip and virtualenv
+Install pip and portaudio
 ```sh
 easy_install pip
-pip install virtualenv
 brew install portaudio // or sudo apt-get install portaudio
 ```
