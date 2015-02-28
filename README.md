@@ -15,4 +15,5 @@ Install pip and virtualenv
 ```sh
 easy_install pip
 pip install virtualenv
+brew install portaudio // or sudo apt-get install portaudio
 ```
