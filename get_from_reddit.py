@@ -12,14 +12,31 @@ import urllib2
 import json
 
 response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=1")
-content = json.loads(response.read().decode(response.info().getparam('charset') or 'utf-8'))
+content = json.loads(response.read()) #.decode(response.info().getparam('charset') or 'utf-8'
 
-for i in content.iteritems():
-	p1 = i.iteritems()
-	for j in p1.iteritems():
-		p2 = j.iteritems()
-		for k in p2.iteritems:
-			print the_key, " corresponds to ", the_value
+children = content['data']['children']
+for child in children:
+	child_data = child['data']
+	print(child_data['title'])
+
+# children = content["data"]["children"]
+# for child in children
+# child_data = child["data"]
+# print(child_data["title"])
+
+
+
+# for x in content.values():
+# 	#p1 = i.iteritems()
+# 	for y in content[x].keys():
+# 		for z in content[x][y].keys():
+# 			if content[x][y]['title'] in content[x][y]:
+# 				print content[x][y]['title']
+	# for children in data.keys():
+	# 	for data in children.keys():
+	# 		print data['title']
+
+			#the_key, " corresponds to ", the_value
 
 	
 
