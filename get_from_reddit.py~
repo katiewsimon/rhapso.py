@@ -5,7 +5,7 @@ subreddit = "music"
 sortby = "hot"
 limit = "1"
 
-response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=3")
+response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=1")
 content = json.loads(response.read()) #.decode(response.info().getparam('charset') or 'utf-8'
 
 children = content['data']['children']
@@ -17,9 +17,5 @@ for child in children:
 	text_len = len(child_data['selftext'])
 	created_utc = child_data['created_utc']
 
-print "score is: ", score 
-print "title is: ", title
-print " title length is: ", title_len 
-print " text length is: " , text_len
-print " created_utc is: ", created_utc
+print("score is: ", score, "title is: ", title,  " title length is: ", title_len, " text length is: " , text_len, " created_utc is: ", created_utc)
 
