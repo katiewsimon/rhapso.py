@@ -50,94 +50,16 @@ def main():
 	children = jsonData['data']['children']
 
 	output_list = ""
+	row = ""
 
 	for child_data in children:
 		child = Rhapsopy(child_data['data']) 
-		output_list += child.to_csv_row + '\n'
+		row = str(child.to_csv_row)
+		print(row)
+		output_list = output_list + row + '\n'
 
 	t.write(output_list)
 
 	t.close()
-        print( "\nFile created. %d records written. " % (i) )
 
 main()
-
-	# def get_score(self,subreddit,sortby,limit):
-		
-	# 	else:
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-			
-	# 		children = content['data']['children']
-			
-	# 		for child in children:
-	# 			child_data = child['data']
-
-	# 	return: child_data['score']
-		
-	# def get_title(self,subreddit,sortby,limit):
-	# 	try: 
-	# 		response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=3")	
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-	# 	except: 
-	# 		print("Data not found. :(")
-	# 	else:
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-			
-	# 		children = content['data']['children']
-			
-	# 		for child in children:
-	# 			child_data = child['data']
-
-	# 	return: child_data['title']
-	
-	# def get_title_len(self,subreddit,sortby,limit):
-	# 	try: 
-	# 		response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=3")	
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-	# 	except: 
-	# 		print("Data not found. :(")
-	# 	else:
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-			
-	# 		children = content['data']['children']
-			
-	# 		for child in children:
-	# 			child_data = child['data']
-
-	# 	return: len(child_data['title'])
-
-	# def get_text_len(self,subreddit,sortby,limit):
-	# 	try: 
-	# 		response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=3")	
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-	# 	except: 
-	# 		print("Data not found. :(")
-	# 	else:
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-			
-	# 		children = content['data']['children']
-			
-	# 		for child in children:
-	# 			child_data = child['data']
-
-	# 	return: len(child_data['selftext']
-
-	# def get_created_utc(self,subreddit,sortby,limit):
-	# 	try: 
-	# 		response = urllib2.urlopen("http://reddit.com/r/music/hot.json?limit=3")	
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-	# 	except: 
-	# 		print("Data not found. :(")
-	# 	else:
-	# 		content = json.loads(response.read()).decode(response.info().getparam('charset') or 'utf-8'
-			
-	# 		children = content['data']['children']
-			
-	# 		for child in children:
-	# 			child_data = child['data']
-
-	# 	return: child_data['created_utc']
-
-	
-
-
