@@ -21,13 +21,13 @@ class Child(object):
 	def text_len_to_duration(self):
 		self.dur = int(self.text_len % 4)
 		if self.dur == 0:
-			self.dur = "whole note"
+			self.dur = 4
 		elif self.dur == 1:
-			self.dur = "quarter note"
+			self.dur = 1
 		elif self.dur == 2:
-			self.dur = "half note"
+			self.dur = 2
 		elif self.dur == 3:
-			self.dur = "dotted half note"
+			self.dur = 3
 		else:
 			self.dur = "not a note"
 		return self.dur	
