@@ -1,11 +1,14 @@
-x = CSVFileReader.read("/Users/mike/projects/reddit_data.csv", true).postcs;
+x = CSVFileReader.read("/Users/mike/projects/rhapso.py/reddit_data.csv", true).postcs;
 x = x.collect(_.collect(_.interpret));
 
+x.postln;
 (
+var scale = Scale.minor.ratios;
+var notes = Pseq(x.collect({ |item|
+  scale[item] * 200}).postln, 1);
 
-
-var notes;
-notes = Pseq([1, 1, 1, 1]).asStream;
+//var notes = Pseq([100, 100, 100, 100], 1).asStream;
+var durations = Pseq([2, 1, 0.5, 0.5], 1);
 
 SynthDef.new("fuzzer", { | freq = 440 |
   var sig1 = RLPF.ar(
@@ -19,8 +22,7 @@ SynthDef.new("fuzzer", { | freq = 440 |
   Out.ar(0, sig1);
   Out.ar(1, sig1);
 }).add;
-)
-(
+
 /*
 r = Task({
   var delta;
@@ -38,9 +40,9 @@ p = Pbind(
         // the name of the SynthDef to use for each note
     \instrument, \fuzzer,
         // MIDI note numbers -- converted automatically to Hz
-    \midinote, Pseq([60, 72, 71, 67, 69, 71, 72, 60, 69, 67], 1),
+    \freq, notes,
         // rhythmic values
-    \dur, Pseq([2, 2, 1, 0.5, 0.5, 1, 1, 2, 2, 3], 1)
+    \dur, durations
 ).play;
 )
 
