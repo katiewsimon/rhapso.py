@@ -1,14 +1,22 @@
-x = CSVFileReader.read("/Users/mike/projects/rhapso.py/reddit_data.csv", true).postcs;
+x = CSVFileReader.read("/Users/mike/projects/rhapso.py/reddit_to_music.csv", true).postcs;
 x = x.collect(_.collect(_.interpret));
 
 x.postln;
 (
 var scale = Scale.minor.ratios;
-var notes = Pseq(x.collect({ |item|
-  scale[item] * 200}).postln, 1);
 
-//var notes = Pseq([100, 100, 100, 100], 1).asStream;
-var durations = Pseq([2, 1, 0.5, 0.5], 1);
+var notes = Pseq(x.collect{
+  arg subarray;
+  subarray[1].postln;
+  scale[subarray[1]] * 200
+});
+
+//var durations = Pseq([2, 1, 0.5, 0.5], 1);
+
+var durations = Pseq(x.collect{
+  arg subarray;
+  subarray[2] / 4;
+});
 
 SynthDef.new("fuzzer", { | freq = 440 |
   var sig1 = RLPF.ar(
