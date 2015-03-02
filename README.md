@@ -9,5 +9,11 @@ This program reads in JSON data from specified subreddits on reddit.com (/r/Musi
 
 Proof of concept: https://soundcloud.com/m6arate/rhapsopy-example
 
+### Usage
+
+```sh
+python get_from_reddit.py
+```
+
 ### Requirements
 SuperCollider, python
